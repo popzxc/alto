@@ -132,14 +132,14 @@ export function customTransport(
                                 // 24 Aug 2024, etherlink throws -32003 error code for eth_call
                                 code:
                                     method === "eth_call" &&
-                                    error.code === -32003
+                                        error.code === -32003
                                         ? 3
                                         : error.code
                             },
                             url: url
                         })
                     }
-                    logger.info({ body, result }, "received response")
+                    logger.trace({ body, result }, "received response")
                     return result
                 },
                 retryCount,

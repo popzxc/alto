@@ -54,13 +54,13 @@ export async function setupContracts({ anvilRpc }: { anvilRpc: string }) {
             gas: 150_000_000n,
             nonce: nonce++
         })
-    // .then((hash) => {
-    //     console.log("[V0.8 CORE] Deploying EntryPoint")
-    //     return client.waitForTransactionReceipt({ hash, confirmations: 1 });
-    // })
-    // .then(() => {
-    //     console.log("[V0.8 CORE] EntryPoint deployed")
-    // });
+        .then((hash) => {
+            console.log("[V0.8 CORE] Deploying EntryPoint")
+            return client.waitForTransactionReceipt({ hash, confirmations: 1 });
+        })
+        .then(() => {
+            console.log("[V0.8 CORE] EntryPoint deployed")
+        });
 
     await walletClient
         .sendTransaction({
@@ -69,13 +69,13 @@ export async function setupContracts({ anvilRpc }: { anvilRpc: string }) {
             gas: 150_000_000n,
             nonce: nonce++
         })
-    // .then((hash) => {
-    //     console.log("[V0.8 CORE] Deploying SimpleAccountFactory")
-    //     return client.waitForTransactionReceipt({ hash, confirmations: 1 });
-    // })
-    // .then(() => {
-    //     console.log("[V0.8 CORE] SimpleAccountFactory deployed")
-    // });
+        .then((hash) => {
+            console.log("[V0.8 CORE] Deploying SimpleAccountFactory")
+            return client.waitForTransactionReceipt({ hash, confirmations: 1 });
+        })
+        .then(() => {
+            console.log("[V0.8 CORE] SimpleAccountFactory deployed")
+        });
 
     await walletClient
         .sendTransaction({
@@ -84,13 +84,13 @@ export async function setupContracts({ anvilRpc }: { anvilRpc: string }) {
             gas: 150_000_000n,
             nonce: nonce++
         })
-    // .then((hash) => {
-    //     console.log("[V0.7 CORE] Deploying EntryPoint")
-    //     return client.waitForTransactionReceipt({ hash, confirmations: 1 });
-    // })
-    // .then(() => {
-    //     console.log("[V0.7 CORE] EntryPoint deployed")
-    // });
+        .then((hash) => {
+            console.log("[V0.7 CORE] Deploying EntryPoint")
+            return client.waitForTransactionReceipt({ hash, confirmations: 1 });
+        })
+        .then(() => {
+            console.log("[V0.7 CORE] EntryPoint deployed")
+        });
 
     await walletClient
         .sendTransaction({
@@ -99,13 +99,13 @@ export async function setupContracts({ anvilRpc }: { anvilRpc: string }) {
             gas: 150_000_000n,
             nonce: nonce++
         })
-    // .then((hash) => {
-    //     console.log("[V0.7 CORE] Deploying SimpleAccountFactory")
-    //     return client.waitForTransactionReceipt({ hash, confirmations: 1 });
-    // })
-    // .then(() => {
-    //     console.log("[V0.7 CORE] SimpleAccountFactory deployed")
-    // });
+        .then((hash) => {
+            console.log("[V0.7 CORE] Deploying SimpleAccountFactory")
+            return client.waitForTransactionReceipt({ hash, confirmations: 1 });
+        })
+        .then(() => {
+            console.log("[V0.7 CORE] SimpleAccountFactory deployed")
+        });
 
     await walletClient
         .sendTransaction({
@@ -114,13 +114,13 @@ export async function setupContracts({ anvilRpc }: { anvilRpc: string }) {
             gas: 150_000_000n,
             nonce: nonce++
         })
-    // .then((hash) => {
-    //     console.log("[V0.6 CORE] Deploying EntryPoint")
-    //     return client.waitForTransactionReceipt({ hash, confirmations: 1 });
-    // })
-    // .then(() => {
-    //     console.log("[V0.6 CORE] EntryPoint deployed")
-    // });
+        .then((hash) => {
+            console.log("[V0.6 CORE] Deploying EntryPoint")
+            return client.waitForTransactionReceipt({ hash, confirmations: 1 });
+        })
+        .then(() => {
+            console.log("[V0.6 CORE] EntryPoint deployed")
+        });
 
     await walletClient
         .sendTransaction({
@@ -129,13 +129,13 @@ export async function setupContracts({ anvilRpc }: { anvilRpc: string }) {
             gas: 150_000_000n,
             nonce: nonce++
         })
-    // .then((hash) => {
-    //     console.log("[V0.6 CORE] Deploying SimpleAccountFactory")
-    //     return client.waitForTransactionReceipt({ hash, confirmations: 1 });
-    // })
-    // .then(() => {
-    //     console.log("[V0.6 CORE] SimpleAccountFactory deployed")
-    // });
+        .then((hash) => {
+            console.log("[V0.6 CORE] Deploying SimpleAccountFactory")
+            return client.waitForTransactionReceipt({ hash, confirmations: 1 });
+        })
+        .then(() => {
+            console.log("[V0.6 CORE] SimpleAccountFactory deployed")
+        });
 
     // Wait for all deploy/setup txs to be mined.
     let onchainNonce = 0
