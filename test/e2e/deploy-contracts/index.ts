@@ -5,7 +5,7 @@ import {
     createWalletClient,
     type PublicClient
 } from "viem"
-import { mnemonicToAccount } from "viem/accounts"
+import { mnemonicToAccount, privateKeyToAccount } from "viem/accounts"
 import { foundry } from "viem/chains"
 import {
     ENTRY_POINT_V08_CREATECALL,
@@ -38,9 +38,7 @@ export async function setupContracts({ anvilRpc }: { anvilRpc: string }) {
     let nonce = 0
 
     const walletClient = createWalletClient({
-        account: mnemonicToAccount(
-            "test test test test test test test test test test test junk"
-        ),
+        account: privateKeyToAccount("0xdbda1821b80551c9d65939329250298aa3472ba22feea921c0cf5d620ea67b97"),
         chain: foundry,
         transport: http(anvilRpc)
     })
@@ -49,59 +47,95 @@ export async function setupContracts({ anvilRpc }: { anvilRpc: string }) {
         transport: http(anvilRpc)
     })
 
-    walletClient
+    await walletClient
         .sendTransaction({
             to: DETERMINISTIC_DEPLOYER,
             data: ENTRY_POINT_V08_CREATECALL,
-            gas: 15_000_000n,
+            gas: 150_000_000n,
             nonce: nonce++
         })
-        .then(() => console.log("[V0.8 CORE] Deploying EntryPoint"))
+    // .then((hash) => {
+    //     console.log("[V0.8 CORE] Deploying EntryPoint")
+    //     return client.waitForTransactionReceipt({ hash, confirmations: 1 });
+    // })
+    // .then(() => {
+    //     console.log("[V0.8 CORE] EntryPoint deployed")
+    // });
 
-    walletClient
+    await walletClient
         .sendTransaction({
             to: DETERMINISTIC_DEPLOYER,
             data: SIMPLE_ACCOUNT_FACTORY_V08_CREATECALL,
-            gas: 15_000_000n,
+            gas: 150_000_000n,
             nonce: nonce++
         })
-        .then(() => console.log("[V0.8 CORE] Deploying SimpleAccountFactory"))
+    // .then((hash) => {
+    //     console.log("[V0.8 CORE] Deploying SimpleAccountFactory")
+    //     return client.waitForTransactionReceipt({ hash, confirmations: 1 });
+    // })
+    // .then(() => {
+    //     console.log("[V0.8 CORE] SimpleAccountFactory deployed")
+    // });
 
-    walletClient
+    await walletClient
         .sendTransaction({
             to: DETERMINISTIC_DEPLOYER,
             data: ENTRY_POINT_V07_CREATECALL,
-            gas: 15_000_000n,
+            gas: 150_000_000n,
             nonce: nonce++
         })
-        .then(() => console.log("[V0.7 CORE] Deploying EntryPoint"))
+    // .then((hash) => {
+    //     console.log("[V0.7 CORE] Deploying EntryPoint")
+    //     return client.waitForTransactionReceipt({ hash, confirmations: 1 });
+    // })
+    // .then(() => {
+    //     console.log("[V0.7 CORE] EntryPoint deployed")
+    // });
 
-    walletClient
+    await walletClient
         .sendTransaction({
             to: DETERMINISTIC_DEPLOYER,
             data: SIMPLE_ACCOUNT_FACTORY_V07_CREATECALL,
-            gas: 15_000_000n,
+            gas: 150_000_000n,
             nonce: nonce++
         })
-        .then(() => console.log("[V0.7 CORE] Deploying SimpleAccountFactory"))
+    // .then((hash) => {
+    //     console.log("[V0.7 CORE] Deploying SimpleAccountFactory")
+    //     return client.waitForTransactionReceipt({ hash, confirmations: 1 });
+    // })
+    // .then(() => {
+    //     console.log("[V0.7 CORE] SimpleAccountFactory deployed")
+    // });
 
-    walletClient
+    await walletClient
         .sendTransaction({
             to: DETERMINISTIC_DEPLOYER,
             data: ENTRY_POINT_V06_CREATECALL,
-            gas: 15_000_000n,
+            gas: 150_000_000n,
             nonce: nonce++
         })
-        .then(() => console.log("[V0.6 CORE] Deploying EntryPoint"))
+    // .then((hash) => {
+    //     console.log("[V0.6 CORE] Deploying EntryPoint")
+    //     return client.waitForTransactionReceipt({ hash, confirmations: 1 });
+    // })
+    // .then(() => {
+    //     console.log("[V0.6 CORE] EntryPoint deployed")
+    // });
 
-    walletClient
+    await walletClient
         .sendTransaction({
             to: DETERMINISTIC_DEPLOYER,
             data: SIMPLE_ACCOUNT_FACTORY_V06_CREATECALL,
-            gas: 15_000_000n,
+            gas: 150_000_000n,
             nonce: nonce++
         })
-        .then(() => console.log("[V0.6 CORE] Deploying SimpleAccountFactory"))
+    // .then((hash) => {
+    //     console.log("[V0.6 CORE] Deploying SimpleAccountFactory")
+    //     return client.waitForTransactionReceipt({ hash, confirmations: 1 });
+    // })
+    // .then(() => {
+    //     console.log("[V0.6 CORE] SimpleAccountFactory deployed")
+    // });
 
     // Wait for all deploy/setup txs to be mined.
     let onchainNonce = 0
@@ -125,3 +159,9 @@ export async function setupContracts({ anvilRpc }: { anvilRpc: string }) {
         ]
     })
 }
+
+
+
+(async () => {
+    await setupContracts({ anvilRpc: "http://127.0.0.1:8545" });
+})()

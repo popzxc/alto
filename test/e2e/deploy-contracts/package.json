@@ -3,7 +3,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "start": "wait-port anvil:8545 && node --no-warnings=ExperimentalWarning --loader ts-node/esm index.ts"
+        "start": "node --no-warnings=ExperimentalWarning --loader ts-node/esm index.ts"
     },
     "dependencies": {
         "viem": "^2.9.5",

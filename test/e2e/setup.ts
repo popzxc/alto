@@ -117,7 +117,7 @@ export default async function setup({ provide }) {
         codeSizeLimit: 1000_000,
         gasLimit: 30_000_000
     })
-    await anvilInstance.start()
+    // await anvilInstance.start()
     const anvilRpc = `http://${anvilInstance.host}:${anvilInstance.port}`
 
     await setupContracts({ anvilRpc })
@@ -141,7 +141,7 @@ export default async function setup({ provide }) {
 
     return async () => {
         await altoInstance.stop()
-        await anvilInstance.stop()
+        // await anvilInstance.stop()
     }
 }
 

@@ -22,10 +22,13 @@ export default defineConfig({
             concurrent: false
         },
         fileParallelism: false,
+        maxWorkers: 1,
+        isolate: true,
         globalSetup: join(__dirname, "./setup.ts"),
         environment: "node",
         testTimeout: 60_000,
-        hookTimeout: 45_000
+        hookTimeout: 45_000,
+        bail: 1
         // setupFiles: [join(__dirname, "./setup.ts")],
         // globalSetup: [join(__dirname, "./globalSetup.ts")]
     }
